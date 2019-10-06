@@ -55,7 +55,7 @@ For example, to open a 100,000 sat channel with [this node](https://1ml.com/test
 
 ```
 $ lightning-cli hwi-open-channel 100000 0303ba0fed62039df562a77bfcec887a9aa0767ff6519f6e2baa1309210544cd3d@5.9.150.112:9735 WALLETNAME
-``
+```
 
 Confirm the transaction on your device and the channel should open.
 
