@@ -4,9 +4,29 @@
 
 Install `hwi` and `python-bitcoinrpc` to your _global python 3 installation_
 
+```
+python3 -m pip install hwi python-bitcoinrpc
+```
+
+Add the following values to your ~/.lightning/config:
+
+```
+network=testnet
+bitcoin-rpcuser=<your-bitcoin-rpc-username>
+bitcoin-rpcpassword=<your-bitcoin-rpc-password>
+bitcoin-rpcport=<your-bitcoin-rpc-testnet-port>
+bitcoin-rpcconnect=<your-bitoin-rpc-testnet-host>
+```
+
+If you're on linux, you may need to install hardware wallet udev rules (probably requires `sudo`):
+
+```
+hwi installudevrules
+```
+
 ### Usage
 
-Plug in device and unlock hardware device. Run Bitcoin Core in testnet mode.
+Plug in device and unlock hardware device. Run Bitcoin Core in testnet mode. Make sure you have `server=1` in your `bitcoin.conf`.
 
 Run the following command to create a watch-only Bitcoin Core wallet associated with your device. `WALLETNAME` will be the name of the watch-only wallet withing Bitcoin Core:
 
