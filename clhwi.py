@@ -131,13 +131,13 @@ def hwi_open_channel(plugin, amount, node_id, bitcoin_wallet_name):
 
         # finalize lightning channel
         r = lightning_rpc.fundchannel_complete(node_pubkey, txid, vout)
-        plugin.log('channel funding complete')
+        plugin.log(f'channel funding complete: txid={txid} vout={vout}')
         plugin.log(str(r))
 
         # broadcast
         tx_hex = wallet_rpc.finalizepsbt(raw_signed_psbt)["hex"]
         txid = wallet_rpc.sendrawtransaction(tx_hex)
-        plugin.log('broadcasted tx')
+        plugin.log('broadcasted tx: ' + txid)
 
     # FIXME: exceptions might not be raised ...
     except Exception as e:
