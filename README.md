@@ -61,4 +61,5 @@ Confirm the transaction on your device and the channel should open.
 
 ### TODO:
 
-This proof-of-concept makes many unnecessary assumptions (required config values, Bitcoin Core backend). Perhaps it would be better to just offer a `sign-funding-tx` method that takes a PSBT as argument -- you can produce this PSBT any way you like, instead of using bitcoin RPC within the plugin.
+- This proof-of-concept makes many unnecessary assumptions (required config values, Bitcoin Core backend). Perhaps it would be better to just offer a `sign-funding-tx` method that takes a PSBT as argument -- you can produce this PSBT any way you like, instead of using bitcoin RPC within the plugin.
+- Remove `python-bitcoinrpc` dependency
