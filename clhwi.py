@@ -9,6 +9,7 @@ from lightning import Plugin, LightningRpc
 from bitcoinrpc.authproxy import AuthServiceProxy
 from hwilib import commands, serializations
 import time
+from pathlib import Path
 
 plugin = Plugin()
 
@@ -150,8 +151,9 @@ def init(options, configuration, plugin, **kwargs):
     global lightning_rpc, bitcoin_rpc, rpc_settings
     print(configuration)
     # setup lightning rpc
-    path = configuration['lightning-dir'] + '/' + configuration['rpc-file']
-    lightning_rpc = LightningRpc(path)
+    lightning_dir, rpc_file = configuration['lightning-dir'], configuration['rpc-file']
+    path = Path(f"{lightning_dir}/{rpc_file}")
+    lightning_rpc = LightningRpc(str(path))
 
     # setup bitcoin rpc
     config = lightning_rpc.listconfigs()
